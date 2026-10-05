@@ -10,9 +10,16 @@ builder.Services.AddControllers();
 
 builder.Services.AddDistributedMemoryCache();
 
-//DB InMemory
-builder.Services.AddDbContext<AppDbContext>(options => 
-    options.UseInMemoryDatabase("EcommerceDb"));
+//Connessione a Postgre
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+//Configurazione Redis
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = builder.Configuration.GetConnectionString("Redis");
+    options.InstanceName = "Ecommerce_"; 
+});
 
 builder.Services.AddScoped<ICartService, CartService>();
 
