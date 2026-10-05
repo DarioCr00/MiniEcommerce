@@ -40,7 +40,7 @@ Clona la repository:
 
   ```bash
 
-  git clone \[https://github.com/DarioCr00/MiniEcommerce.git](https://github.com/DarioCr00/MiniEcommerce.git)
+  git clone [https://github.com/DarioCr00/MiniEcommerce.git](https://github.com/DarioCr00/MiniEcommerce.git)
 
   cd MiniEcommerce
 
