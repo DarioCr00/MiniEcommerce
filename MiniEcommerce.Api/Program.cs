@@ -1,8 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using MiniEcommerce.Api.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+//DB InMemory
+builder.Services.AddDbContext<AppDbContext>(options => 
+    options.UseInMemoryDatabase("EcommerceDb"));
 
 //Swagger
 builder.Services.AddEndpointsApiExplorer();
